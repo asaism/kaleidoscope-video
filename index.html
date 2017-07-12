@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Kaleidoscope</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript">
+
+    window.onload = function() {
+      startVideo();
+    };
+
+    function startVideo() {
+      let localVideos = document.getElementsByTagName('video');
+      let localStream;
+      navigator.mediaDevices.getUserMedia({video: true, audio: false})
+        .then(function(stream) {
+          localStream = stream;
+          [].forEach.call(localVideos, function(video) {
+            setTimeout(function() {
+              video.src =  window.URL.createObjectURL(localStream);
+            }, 0);
+          });
+        }).catch(function(error) {
+          console.error('mediaDevice.getUserMedia() error:', error);
+          return;
+      });
+    }
+
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <!--
+    <section class="sect-1"></section>
+    <section class="sect-2"></section>
+    <section class="sect-3"></section>
+    <section class="sect-4"></section>
+    <section class="sect-5"></section>
+    <section class="sect-6"></section>
+    <section class="sect-7"></section>
+    <section class="sect-8"></section>
+    <section class="sect-9"></section>
+    <section class="sect-10"></section>
+    <section class="sect-11"></section>
+    <section class="sect-12"></section>
+    -->
+    <video class="sect-1" id="video1" autoplay style="width: 1280px; height: 960px; border: 1px solid black;"></video>
+    <video class="sect-2" id="video2" autoplay style="width: 1280px; height: 960px; border: 1px solid black;"></video>
+    <video class="sect-3" id="video3" autoplay style="width: 1280px; height: 960px; border: 1px solid black;"></video>
+    <video class="sect-4" id="video4" autoplay style="width: 1280px; height: 960px; border: 1px solid black;"></video>
+    <video class="sect-5" id="video5" autoplay style="width: 1280px; height: 960px; border: 1px solid black;"></video>
+    <video class="sect-6" id="video6" autoplay style="width: 1280px; height: 960px; border: 1px solid black;"></video>
+    <video class="sect-7" id="video7" autoplay style="width: 1280px; height: 960px; border: 1px solid black;"></video>
+    <video class="sect-8" id="video8" autoplay style="width: 1280px; height: 960px; border: 1px solid black;"></video>
+    <video class="sect-9" id="video9" autoplay style="width: 1280px; height: 960px; border: 1px solid black;"></video>
+    <video class="sect-10" id="video10" autoplay style="width: 1280px; height: 960px; border: 1px solid black;"></video>
+    <video class="sect-11" id="video11" autoplay style="width: 1280px; height: 960px; border: 1px solid black;"></video>
+    <video class="sect-12"  id="video12" autoplay style="width: 1280px; height: 960px; border: 1px solid black;"></video>
+</div>
+
+</body>
+</html>
