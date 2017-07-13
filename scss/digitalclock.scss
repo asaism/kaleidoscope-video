@@ -1,6 +1,7 @@
 $easing: cubic-bezier(0.5, 0, 0.5, 1);
 $easing-alt: cubic-bezier(0.4, 0, 0.1, 1);
 $color-primary: #0BFDFD;
+$linebold: 1.2vmin;
 
 :root {
   --mouse-x: 0;
@@ -157,7 +158,7 @@ $config: (
   
   &:nth-child(2n - 1) {
     height: 50%;
-    width: 0.5vmin;
+    width: $linebold;
     
     &:before, &:after {
       height: calc(50% - 0.25vmin);
@@ -174,7 +175,7 @@ $config: (
   }
   &:nth-child(2n) {
     width: 100%;
-    height: 0.5vmin;
+    height: $linebold;
     
     &:before, &:after {
       height: 100%;
