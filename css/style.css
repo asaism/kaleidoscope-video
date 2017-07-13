@@ -23,7 +23,7 @@ video {
           clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
   -webkit-transform-origin: 50% 100%;
           transform-origin: 50% 100%;
-  background-image: url("../image/glass.jpg");
+  background-image: url("../image/rose.jpg");
   background-size: auto 150%;
   -webkit-animation: move-background 12s infinite alternate ease-in-out;
           animation: move-background 12s infinite alternate ease-in-out;
