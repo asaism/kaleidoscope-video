@@ -27,6 +27,8 @@ video {
   background-size: auto 150%;
   -webkit-animation: move-background 12s infinite alternate ease-in-out;
           animation: move-background 12s infinite alternate ease-in-out;
+  -webkit-animation: change-videosize 12s infinite alternate ease-in-out;
+          animation: change-videosize 12s infinite alternate ease-in-out;
 }
 
 .sect-1 {
@@ -124,5 +126,21 @@ video {
   }
   100% {
     background-position: 0% 100%;
+  }
+}
+@-webkit-keyframes change-videosize {
+  0% {
+    height: 50vmax;
+  }
+  100% {
+    height: 70vmax;
+  }
+}
+@keyframes change-videosize {
+  0% {
+    height: 50vmax;
+  }
+  100% {
+    height: 70vmax;
   }
 }
