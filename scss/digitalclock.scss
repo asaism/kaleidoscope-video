@@ -1,7 +1,7 @@
 $easing: cubic-bezier(0.5, 0, 0.5, 1);
 $easing-alt: cubic-bezier(0.4, 0, 0.1, 1);
 $color-primary: #0BFDFD;
-$linebold: 1.2vmin;
+$linebold: 0.5vmin; //1.2vmin
 
 :root {
   --mouse-x: 0;
@@ -35,11 +35,11 @@ $linebold: 1.2vmin;
 }
 
 .digit {
-  height: 20vmin;
-  width: 10vmin;
+  height: 6vmin; // 20vmin
+  width: 3vmin; // 10vmin
   transform-style: preserve-3d;
   perspective: 1000px;
-  margin: 0 1rem;
+  margin: 0 0.5rem; // 0 1rem
   
   &, &:after, &:before {
     transition: transform 1s $easing;
@@ -61,9 +61,9 @@ $linebold: 1.2vmin;
       display: block;
       position: absolute;
       text-align: center;
-      width: 1vmax;
-      height: 1vmax;
-      left: calc(100% + 2vmax);
+      width: 0.5vmax; //1vmax
+      height: 0.5vmax; //1vmax
+      left: calc(100% + 1.5vmax); //2vmax
       box-shadow: 0 0 1rem $color-primary, inset 0 0 0.25vmax $color-primary;
       font-size: 8vmax;
       text-shadow: 0 0 1rem $color-primary;
