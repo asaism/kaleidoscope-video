@@ -1,4 +1,5 @@
 @import "../scsslib/math.scss";
+$set-prefix: -webkit-, '   '+-moz- , '        ';
 
 $sections: 12; // even number, duh!
 $angle: 360 / $sections;
@@ -6,6 +7,11 @@ $radangle: $angle / 180 * 3.14159;
 $height: 70vmax;
 $width: (tan($radangle/2) * $height) * 2;
 
+@mixin PropertySetPrefix($name, $value) {
+	@each $prefix in $set-prefix {
+		#{$prefix}#{$name}: $value;
+	}
+}
 body {
 	overflow: hidden;
 	background-color: #222;
@@ -17,7 +23,7 @@ body {
 	height: 140vmax;
 	top: 50%;
 	left: 50%;
-	animation: spin 60s linear infinite;
+	@include PropertySetPrefix(animation, spin 60s linear infinite);
 }
 
 video {
@@ -26,31 +32,49 @@ video {
 	bottom: 50%;
 	width: $width;
 	height: $height;
-	clip-path: polygon(0% 0%, 100% 0%, 50% 100%);
-	transform-origin: 50% 100%;
+	@include PropertySetPrefix(clip-path, polygon(0% 0%, 100% 0%, 50% 100%));
+	@include PropertySetPrefix(transform-origin, 50% 100%);
 	background-image: url("../image/rose.jpg");
 	background-size: auto 150%;
-	animation: move-background 12s infinite alternate ease-in-out;
-	animation: change-videosize 12s infinite alternate ease-in-out;
+	@include PropertySetPrefix(animation, move-background 12s infinite alternate ease-in-out);
+	@include PropertySetPrefix(animation, change-videosize 12s infinite alternate ease-in-out);
 }
 
 @for $i from 1 through $sections {
 	.sect-#{$i} {
 		@if(($i % 2) == 0) {
-			transform: translateX(-50%) rotateZ($i * $angle * 1deg);
+			@include PropertySetPrefix(transform, translateX(-50%) rotateZ($i * $angle * 1deg));
 		}
 		@else {
-			transform: translateX(-50%) rotateY(180deg) rotateZ($i * $angle * 1deg);
+			@include PropertySetPrefix(transform, translateX(-50%) rotateY(180deg) rotateZ($i * $angle * 1deg));
 		}
 	}
 }
 
 @keyframes spin {
 	0% {
-		transform: translateX(-50%) translateY(-50%) rotateZ(0deg);
+		@include PropertySetPrefix(transform, translateX(-50%) translateY(-50%) rotateZ(0deg));
 	}
 	100% {
-		transform: translateX(-50%) translateY(-50%) rotateZ(-360deg);
+		@include PropertySetPrefix(transform, translateX(-50%) translateY(-50%) rotateZ(-360deg));
+	}
+}
+
+@-webkit-keyframes spin {
+	0% {
+		@include PropertySetPrefix(transform, translateX(-50%) translateY(-50%) rotateZ(0deg));
+	}
+	100% {
+		@include PropertySetPrefix(transform, translateX(-50%) translateY(-50%) rotateZ(-360deg));
+	}
+}
+
+@-moz-keyframes spin {
+	0% {
+		@include PropertySetPrefix(transform, translateX(-50%) translateY(-50%) rotateZ(0deg));
+	}
+	100% {
+		@include PropertySetPrefix(transform, translateX(-50%) translateY(-50%) rotateZ(-360deg));
 	}
 }
 
@@ -63,7 +87,43 @@ video {
 	}
 }
 
+@-webkit-keyframes move-background {
+	0% {
+		background-position: 100% 0%;
+	}
+	100% {
+		background-position: 0% 100%;
+	}
+}
+
+@-moz-keyframes move-background {
+	0% {
+		background-position: 100% 0%;
+	}
+	100% {
+		background-position: 0% 100%;
+	}
+}
+
 @keyframes change-videosize {
+	0% {
+		height: 50vmax;
+	}
+	100% {
+		height: 70vmax;
+	}
+}
+
+@-webkit-keyframes change-videosize {
+	0% {
+		height: 50vmax;
+	}
+	100% {
+		height: 70vmax;
+	}
+}
+
+@-moz-keyframes change-videosize {
 	0% {
 		height: 50vmax;
 	}
